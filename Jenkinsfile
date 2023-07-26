@@ -27,8 +27,8 @@ pipeline {
 
     }
     post {
-        sucess {
-            mail subject: 'this project is sucess',
+        success {
+            mail subject: 'this project is success',
                  body: 'this spc project is success',
                  to: 'rahulmaddy14@gmail.com'
 
