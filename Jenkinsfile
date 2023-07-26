@@ -17,7 +17,11 @@ pipeline {
                     branch: 'develop'
             }
         }
-
+        stage('build and pacakage') {
+            steps {
+                sh script: 'mvn package'
+            }
+        }
         stage('results') {
             steps{
                 archiveArtifacts artifacts: '**/target/*.jar'
