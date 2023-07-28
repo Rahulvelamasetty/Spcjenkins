@@ -29,12 +29,16 @@ pipeline {
         
         stage('execute maven') {
             steps {
-                rtMavenRun (
+                /*rtMavenRun (
                     tool: 'maven-3.9.3',
                     pom:'pom.xml',
                     goals: 'clean install',
                     deployerId: "SPC_DEPLOYER"
-                )
+                )*/
+                    tool: 'maven-3.9.3',
+                    pom: 'pom.xml',
+                    goals: 'clean install',
+                    deployerId: 'SPC_DEPLOYER'
             } 
         }
         stage('Publish build info') {
