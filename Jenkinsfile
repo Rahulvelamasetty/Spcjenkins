@@ -15,7 +15,7 @@ pipeline {
                 git url: 'https://github.com/dummyrepos/spring-petclinic-1.git',
                     branch: 'develop'
             }
-        }
+       }
                                 
     }
           
@@ -31,7 +31,7 @@ pipeline {
         }    
         
         stage('execute maven') {
-             steps {
+            steps {
                 rtMavenRun (
                     tool: 'maven-3.9.3',
                     pom: 'pom.xml',
