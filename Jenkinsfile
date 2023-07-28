@@ -15,11 +15,8 @@ pipeline {
                 git url: 'https://github.com/dummyrepos/spring-petclinic-1.git',
                     branch: 'develop'
             }
-       }
-                                
-    }
-          
-        stage('build and package') {
+        }
+         stage('build and package') {
             steps {
                 rtMavenDeployer (
                     id: "SPC_DEPLOYER",
@@ -33,8 +30,8 @@ pipeline {
         stage('execute maven') {
             steps {
                 rtMavenRun (
-                    tool: 'maven-3.9.3',
-                    pom: 'pom.xml',
+                    tool: 'maven-3.9.3'
+                    pom:'pom.xml',
                     goals: 'clean install',
                     deployerId: "SPC_DEPLOYER"
                 )
@@ -59,7 +56,10 @@ pipeline {
                 archiveArtifacts artifacts: '**/target/*.jar'
                 junit testresults: '**/target/surefire-reports/*.xml'
             }
-        }
+        }                       
+    }
+          
+       
 
     // post {
     //     sucess {
@@ -76,4 +76,5 @@ pipeline {
     //     }
         
     // }
-}        
+}    
+
