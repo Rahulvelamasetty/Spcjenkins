@@ -53,8 +53,8 @@ pipeline {
         }
         stage('results') {
             steps{
-                archiveArtifacts artifacts: '**/target/*.jar'
-                junit testresults: '**/target/surefire-reports/*.xml'
+                archiveArtifacts artifacts: '**/target/*.jar', followSymlinks: false
+                junit '**/target/surefire-reports/*.xml'
             }
         }                       
     }
