@@ -41,21 +41,21 @@ pipeline {
             } 
         }
         stage('Publish build info') {
-            steps {
+             steps {
                 rtPublishBuildInfo (
                     serverId: "jfrog_jenkins"
                 )
             } 
         }
         stage('SonarQube analysis') {
-            steps {
+             steps {
                 withSonarQubeEnv('SONARCLOUD') {
                           sh 'mvn clean package sonar:sonar -Dsonar.organization=spring-application -Dsonar.token=a49b9d99ab452ad93290f7e7337eee4f23507d07 -Dsonar.projectKey=spring-application_sonar-spring'
                 }
             }    
         }
         stage('results') {
-            steps{
+             steps{
                 archiveArtifacts artifacts: '**/target/*.jar'
                 junit testresults: '**/target/surefire-reports/*.xml'
             }
@@ -77,4 +77,4 @@ pipeline {
         
     // }
 }    
-    
+
