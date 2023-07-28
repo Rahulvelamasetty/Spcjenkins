@@ -34,7 +34,7 @@ pipeline {
              steps {
                 rtMavenRun (
                     tool: 'maven-3.9.3',
-                    pom:'pom.xml',
+                    pom: 'pom.xml',
                     goals: 'clean install',
                     deployerId: "SPC_DEPLOYER"
                 )
