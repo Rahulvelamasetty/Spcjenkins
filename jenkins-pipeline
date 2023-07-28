@@ -16,10 +16,7 @@ pipeline {
                     branch: 'develop'
             }
         }
-                                
-    }
-          
-        stage('build and package') {
+         stage('build and package') {
             steps {
                 rtMavenDeployer (
                     id: "SPC_DEPLOYER",
@@ -59,7 +56,10 @@ pipeline {
                 archiveArtifacts artifacts: '**/target/*.jar'
                 junit testresults: '**/target/surefire-reports/*.xml'
             }
-        }
+        }                       
+    }
+          
+       
 
     // post {
     //     sucess {
