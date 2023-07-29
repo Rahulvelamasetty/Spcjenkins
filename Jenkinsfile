@@ -20,9 +20,9 @@ pipeline {
             steps {
                 rtMavenDeployer (
                     id: "SPC_DEPLOYER",
-                    serverId: "jfrog_jenkins",
-                    releaseRepo: 'jenkins-libs-release',
-                    snapshotRepo: 'jenkins-libs-snapshot'
+                    serverId: "JFROG_CLOUD",
+                    releaseRepo: 'spc-libs-release',
+                    snapshotRepo: 'spc-libs-snapshot'
                 )
             }        
         }    
@@ -40,7 +40,7 @@ pipeline {
         stage('Publish build info') {
             steps {
                 rtPublishBuildInfo (
-                    serverId: "jfrog_jenkins"
+                    serverId: "JFROG_CLOUD"
                 )
             } 
         }
