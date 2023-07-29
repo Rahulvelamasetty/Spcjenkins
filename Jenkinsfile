@@ -1,7 +1,6 @@
 pipeline {
     agent { label 'JDK-17' }
-    options {
-        timeout(time: 30, unit: 'MINUTES')
+    
     }
     triggers {
         pollSCM('* * * * *')
@@ -12,7 +11,7 @@ pipeline {
     stages {
         stage('vcs') {
             steps {
-                git url: 'https://github.com/dummyrepos/spring-petclinic-1.git',
+                git url: 'https://github.com/Rahulvelamasetty/Spcjenkins.git',
                     branch: 'develop'
             }
         }
